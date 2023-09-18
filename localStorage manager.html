@@ -1,0 +1,135 @@
+<html>
+  <head>
+<meta name="viewport" 
+content="width=device-width,
+                  height=device-height, 
+                  initial-scale=1.0">
+    <title></title>
+    <style>
+    body{background:linear-gradient(to top, green, blue);
+               color: lime;
+               font-size: 25px ;
+               font-weight: bold ;
+               
+} 
+h2{
+  animation:colores 7s 1s linear infinite;
+}
+@keyframes colores{
+  from{
+   filter: hue-rotate(0deg);
+  }to{
+    filter: hue-rotate(360deg);
+  }
+}
+button{
+  margin-left: 10px;
+}
+#clear{
+  position: absolute ;
+  right: 0px;
+  top: 300px ;
+}
+#remove{
+  position: absolute ;
+  right: 0px;
+  top: 200px ;
+}
+    </style>
+  </head>
+  <body>
+  <h2>localStorage</h2>
+
+
+
+<button id="setitem" onclick="setitem()">
+  setItem</button>
+<button id="getitem" onclick="getitem()">
+  getItem</button>
+<button id="indexnumber" onclick="parindexnumber()">
+  parindex[number]</button>
+<button id="keynumber" onclick="keynumber()">
+  key(number) </button>
+<button id="entries" onclick="entries()">
+  entries</button>
+<button id="status" onclick="status()">
+  status</button>
+<button id="remove" onclick="removeitem()">
+  removeItem</button>
+<button id="clear" onclick="clearlocalstorage()">clear</button>
+
+  <div class="display"></div>
+<script>
+let display = document.querySelector('.display')
+
+function setitem(){
+let setkey = window.prompt("set key")
+let setvalue = window.prompt("set value")
+
+window.localStorage.setItem(setkey,setvalue)
+} 
+
+function getitem(){
+  let whichitem = window.prompt("which item")
+  let item = localStorage.getItem(whichitem)
+console.log("item", item); 
+display.innerHTML = ""
+display.innerHTML += "<br>" +item
+}
+
+function parindexnumber(){
+  let number = window.prompt("enter a number")
+  
+  display.innerHTML = ""
+  display.innerHTML = 
+  Object.entries(localStorage)[number].join(":")
+}
+
+function keynumber(){
+  let number = window.prompt("enter a number")
+  display.innerHTML = ""
+  display.innerHTML = localStorage.key(number)
+}
+
+function entries(){
+  console.log("object entries",
+  Object.entries(localStorage).join(" "));
+  console.log("object keys", Object.keys(localStorage));
+  console.log("object values", Object.values(localStorage));
+  display.innerHTML = ""
+  for(i = 0;i < localStorage.length;i++){
+ display.innerHTML += i + " "
+ display.innerHTML += 
+ Object.entries(localStorage)[i].join(":") +"<br>"
+  }
+  display.innerHTML += "<br>"
+}
+
+function status(){
+  display.innerHTML = ""
+  display.innerHTML = "localStorage.length:" +localStorage.length
+console.log("localStorage length", localStorage.length);
+console.log(localStorage); 
+} 
+
+function removeitem(){
+  let itemtoremove = window.prompt("enter the name of the item to remove")
+  let confirmation = window.confirm("are you sure, it cannot be undone")
+  
+  if(confirmation){
+  localStorage.removeItem(itemtoremove)
+  } 
+}
+
+function clearlocalstorage(){
+  //if clear button does not work, in the console write localStorage.clear() and press enter
+  let confirmation = window.confirm("all data in localStorage will be erased, it cannot be undone")
+  if(confirmation){
+  display.innerHTML = ""
+  localStorage.clear()
+  } 
+} 
+</script> 
+<footer>              <!--              --></footer>
+</body>
+</html> 
