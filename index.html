@@ -22,7 +22,7 @@ h2{
     filter: hue-rotate(360deg);
   }
 }
-      .plus{
+.plus{
   position: absolute ;
   right: 0px;
   top: 0px;
@@ -147,16 +147,19 @@ function clearlocalstorage(){
   localStorage.clear()
   } 
 } 
-</script> 
-    <script>
-      let plus = document.querySelector('.plus')
+
+
+
+
+  
+let plus = document.querySelector('.plus')
 let colores = setInterval(()=>{
   plus.style.backgroundColor = `rgb(
   ${Math.round(Math.random()*256)} , 
   ${Math.round(Math.random()*256)} ,
   ${Math.round(Math.random()*256)} ) `
 }, 5500 )
-    </script>
+</script>
 <footer>              <!--              --></footer>
 </body>
 </html> 
