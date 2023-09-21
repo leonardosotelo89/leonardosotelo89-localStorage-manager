@@ -41,51 +41,62 @@ h2{
   }   
 }
 button{
-  margin-left: 10px;
   font-weight:500;
   color:white ;
   background-color:blue;
   outline:2px solid white ;
 }
-#clear{
-  position: absolute ;
-  right: 5px;
-  top: 300px ;
-}
-#remove{
-  position: absolute ;
-  right: 5px;
-  top: 200px ;
-}
-#space{
-  position: absolute ;
-  right: 5px;
-  top: 150px ;
-}
+#si{
+  display:grid ;
+  place-items:center ;
+} 
+#gipinkn{
+display:grid ;
+grid-template-columns:repeat(3,auto);
+place-items:center ;
+ } 
+#ess{
+display:grid ;
+grid-template-columns:repeat(3,auto);
+place-items:center ;
+ } 
+#ric{
+  display:grid ;
+grid-template-columns:repeat(2,auto);
+place-items:center ;
+ } 
     </style>
   </head>
   <body>
   <h2>localStorage</h2>
 <div class="plus">+ +</div>
 
-
+<div id="si" >
 <button id="setitem" onclick="setitem()">
   setItem</button>
+</div>
+<div id="gipinkn" >
 <button id="getitem" onclick="getitem()">
   getItem</button>
 <button id="indexnumber" onclick="parindexnumber()">
   parindex[number]</button>
 <button id="keynumber" onclick="keynumber()">
   key(number) </button>
+</div>
+<div id="ess" >
 <button id="entries" onclick="entries()">
   entries</button>
 <button id="status" onclick="status()">
   status</button>
     <button id="space" onclick="space()">
   space</button>
+</div>
+<div id="ric" >
 <button id="remove" onclick="removeitem()">
   removeItem</button>
-<button id="clear" onclick="clearlocalstorage()">clear</button>
+<button id="clear" onclick="clearlocalstorage()">
+  clear</button>
+</div>
 
   <div class="display"></div>
 <script>
