@@ -41,6 +41,7 @@ h2{
   }   
 }
 button{
+  width:200px;
   font-weight:500;
   color:white ;
   background-color:blue;
@@ -114,7 +115,7 @@ window.localStorage.setItem(setkey,setvalue)
 } 
 
 function getitem(){
-  let whichitem = window.prompt("which item")
+  let whichitem = window.prompt("enter key name to get its value")
   let item = localStorage.getItem(whichitem)
 console.log("item", item); 
 display.innerHTML = ""
