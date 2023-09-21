@@ -57,6 +57,11 @@ button{
   right: 0px;
   top: 200px ;
 }
+#space{
+  position: absolute ;
+  right: 0px;
+  top: 150px ;
+}
     </style>
   </head>
   <body>
@@ -76,6 +81,8 @@ button{
   entries</button>
 <button id="status" onclick="status()">
   status</button>
+    <button id="space" onclick="space()">
+  space</button>
 <button id="remove" onclick="removeitem()">
   removeItem</button>
 <button id="clear" onclick="clearlocalstorage()">clear</button>
@@ -152,6 +159,25 @@ function clearlocalstorage(){
   } 
 } 
 
+function space(){
+var allocatedSize = 5; // allocated size in MB
+var totalSize = 0;
+
+for (var key in localStorage) {
+  if (localStorage.hasOwnProperty(key)) {
+    var itemSize = (localStorage[key].length * 2) / 1024 / 1024; // convert to MB
+    totalSize += itemSize;
+  }
+}
+
+var remainingSize = allocatedSize - totalSize;
+
+console.log("Used: " + totalSize.toFixed(2) + " MB");
+console.log("Remaining: " + remainingSize.toFixed(2) + " MB");
+
+  display.innerHTML = ""
+  display.innerHTML = "Used: " +totalSize.toFixed(2) +" MB" +"<br>" +"Remaining: " +remainingSize.toFixed(2) +" MB"
+}
 
 
 
